@@ -1,17 +1,17 @@
 use Animal;
 
-pub struct Monkey {
+pub struct Duck {
     name: String
 }
 
-impl Animal for Monkey {
+impl Animal for Duck {
     fn get_name(&self) -> &String {
         &self.name
     }
 }
 
-impl Monkey {
+impl Duck {
     pub fn new(name: String) -> Self {
-        Monkey { name }
+        Duck { name }
     }
 }

@@ -1,8 +1,6 @@
 use animal::Animal;
 use gateway::Gateway;
 
-// TODO: Rename Memory to be a in memory data provider
-
 pub struct Memory {
     animals: Vec< Box<dyn Animal> >
 }

@@ -1,7 +1,7 @@
 mod animal;
 use animal::Animal;
 
-mod zoo;
+mod memory;
 
 fn main() {
     println!("Hello, world!");

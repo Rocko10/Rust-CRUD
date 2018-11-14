@@ -1,12 +1,14 @@
 use animal::Animal;
 
-pub struct Zoo {
+// TODO: Rename Memory to be a in memory data provider
+
+pub struct Memory {
     animals: Vec< Box<dyn Animal> >
 }
 
-impl Zoo {
-    pub fn new() -> Zoo {
-        Zoo { animals: Vec::new() }
+impl Memory {
+    pub fn new() -> Memory {
+        Memory { animals: Vec::new() }
     }
 
     pub fn add(&mut self, animal: Box<dyn Animal>) {
@@ -23,11 +25,11 @@ mod test {
 
     use ::animal::monkey::Monkey;
     use ::animal::duck::Duck;
-    use super::Zoo;
+    use super::Memory;
 
     #[test]
     fn test_add() {
-        let mut zoo = Zoo::new();
+        let mut zoo = Memory::new();
         let monkey = Monkey::new(String::from("George"));
         let duck = Duck::new(String::from("Daffy"));
 

@@ -41,7 +41,7 @@ mod test {
         }
         {
             let getter = GetImp::new(&mem);
-            assert_eq!(getter.execute().len(), 1);
+            assert_eq!(getter.execute().len(), 2);
         }
     }
 }

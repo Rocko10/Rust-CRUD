@@ -39,6 +39,6 @@ mod test {
             adder.execute(Box::new(monkey));
         }
 
-        assert_eq!(mem.get_animals().len(), 0);
+        assert_eq!(mem.get_animals().len(), 1);
     }
 }

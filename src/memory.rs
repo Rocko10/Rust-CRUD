@@ -19,6 +19,17 @@ impl Gateway for Memory {
     fn get_animals(&self) -> &Vec< Box<dyn Animal> > {
         &self.animals
     }
+
+    fn show(&self, name: String) -> Option<&Box<dyn Animal>> {
+
+        for animal in self.get_animals() {
+            if animal.get_name() == &name {
+                return Some(animal);
+            }
+        }
+
+        return None;
+    }
 }
 
 #[cfg(test)]

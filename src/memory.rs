@@ -30,6 +30,24 @@ impl Gateway for Memory {
 
         return None;
     }
+
+    fn delete(&mut self, name: String) -> Result<Box<dyn Animal>, &'static str> {
+        let mut i = 0;
+
+        loop {
+            if i >= self.animals.len() {
+                break;
+            }
+
+            if self.animals[i].get_name() == &name {
+                return Ok(self.animals.remove(i));
+            }
+
+            i = i + 1;
+        }
+
+        Err("Cannot found Animal")
+    }
 }
 
 #[cfg(test)]

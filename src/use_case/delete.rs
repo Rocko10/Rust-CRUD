@@ -30,10 +30,12 @@ mod test {
     use use_case::Delete;
     use use_case::Get;
     use use_case::get::GetImp;
+    use presenter::cli::Cli;
 
     #[test]
     fn test_delete() {
         let mut mem = Memory::new();
+        let cli = Cli::new();
 
         let m1 = Monkey::new(String::from("Mojo 1"));
         let m2 = Monkey::new(String::from("Mojo 2"));
@@ -53,7 +55,7 @@ mod test {
             assert_eq!(res.unwrap().get_name(), &"Mojo 2".to_string());
         }
 
-        let getter = GetImp::new(&mem);
+        let getter = GetImp::new(&mem, &cli);
         let animals = getter.execute();
 
         assert_eq!(getter.execute().len(), 2);
@@ -63,6 +65,7 @@ mod test {
     #[test]
     fn test_delete_get_error() {
         let mut mem = Memory::new();
+        let cli = Cli::new();
 
         let m1 = Monkey::new(String::from("Mojo 1"));
 
@@ -80,7 +83,7 @@ mod test {
 
         }
 
-        let getter = GetImp::new(&mem);
+        let getter = GetImp::new(&mem, &cli);
         assert_eq!(getter.execute().len(), 1);
     }
 }

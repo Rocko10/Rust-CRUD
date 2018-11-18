@@ -1,9 +1,9 @@
 use animal::Animal;
 
-mod add;
-mod get;
-mod show;
-mod delete;
+pub mod add;
+pub mod get;
+pub mod show;
+pub mod delete;
 
 pub trait Add {
     fn execute(&mut self, animal: Box<impl Animal + 'static>);
